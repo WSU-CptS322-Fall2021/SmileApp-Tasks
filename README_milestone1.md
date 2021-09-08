@@ -24,7 +24,7 @@ This is how it is going to look at the end of milestone-1 of the project:
 In part 1, we will focus on the basic features of the app : displaying "smile" posts; creating new posts; liking posts. We will build both the frontend page templates and the backend routes for these features. We will also start building the database of the app.
 
 ---
-### Task 0: Setup Flask on your `localhost`
+### Task 0: Install Python
 ---
 1. If you haven't yet, go ahead and install [Python](https://www.python.org/downloads/). (Your Python version should be 3.7.x or higher.)
 
@@ -38,27 +38,6 @@ In part 1, we will focus on the basic features of the app : displaying "smile" p
 2. If you have a Windows system I strongly suggest you to install a terminal emulator program to run the command line arguments. The following link provides a list of popular terminal programs for windows. [https://www.puttygen.com/windows-terminal-emulators](https://www.puttygen.com/windows-terminal-emulators)
    If you don't want to install a new program, you may use the Windows command prompt  `cmd` or VS Code terminal.  
    
-4. Install all the required packages. 
-   The file `requirements.txt` lists all the required Python packages we will need for our application. You can install all packages at once by running the following command. 
-        ```
-        $ pip install -r requirements.txt
-        ```
-    
-    *Note for Windows users*: If `pip` is not installed in your system, you need to also add the Python\Scripts path to the Windows Path. On Windows, Python will typically be installed under the directory `C:\Users\<username>\AppData\Local\Programs\Python\Python3.x`. Locate your Python installation directory, make sure `pip` or `pip3` is under the `Scripts` directory, and add the "path of Scripts directory" to the Path environment variable. 
-
-    As we need these packages in our application, I will include the commands for installing them. If you already installed all packages in `requirements.txt`, you can skip those.  
-   
-    Initially, make sure that `flask` and `flask-sqlalchemy` are installed in the current virtual environment. If not, install those by running the following commands. 
- 
-    ```
-        pip install flask
-        pip install flask-sqlalchemy
-    ```
-
-    ** Note: ** Optionally, you can install the required packages in a virtual environment so that the system-wide Python interpreter is not affected. Refer to  the following link for details. [https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
-
-    Make sure to activate virtual environment before you install the requirements. 
-
 ---
 ### Task 1: Get Started with the Provided Files 
 ---
@@ -79,7 +58,7 @@ Similar to the StudentApp exercise, you will commit your code to a repository un
         mkdir smileApp_<yourGitHubusername>
         cd smileApp_<yourGitHubusername>
     ```
-        ( *REMOVE enclosing angle brackets , i.e., <>* ).
+    ( *REMOVE enclosing angle brackets , i.e., <>* ).
 
    * Initialize git in your project directory with the command 
   
@@ -115,7 +94,7 @@ Similar to the StudentApp exercise, you will commit your code to a repository un
    
     ```
         git add README.md 
-        git commit -m "added readme" README.md
+        git commit -am "Added readme file." README.md
         git push origin main
     ```
 
@@ -130,63 +109,70 @@ Similar to the StudentApp exercise, you will commit your code to a repository un
         git checkout milestone1
     ```
 
-8. You will now be editing locally and complete the `milestone1` tasks. **Remember to commit frequently**.
-
-9. You will find the following provided files in the given started code:
+8. You will find the following provided files in the given started code:
 
 ```bash
-  * app
-        * __init__.py            Python script that initializes the `app` module. 
-        * Controller
-            * __init__.py            Python script that initializes the `Controller` module. 
-            * auth_forms.py          Flask-WTF forms for authentication use cases, i.e., "registering a new user" and "login". 
-            * forms.py               Flask-WTF forms for "creating a post" and "sorting all posts". 
-            * errors.py              Error handlers for 404 and 505 errors
-            * auth_routes.py         Routes handling authetication, i.e., "registering a new user" and "login". 
-            * routes.py              Other routes
-        * Model
-            * __init__.py            Python script that initializes the `Model` module. 
-            * models.py              Database models
-        * View
-            * static
-                * css
-                    * main.css
-                * img 
-                    * happiness-level-1.png  image for happiness-level-1
-                    * happiness-level-2.png  image for happiness-level-1
-                    * happiness-level-3.png  image for happiness-level-1
-                    * like.png, like_hover.png      icons for like button
-            * templates
-                * 404error.html      HTML template page for displaying 404 errors
-                * 500error.html      HTML template page for displaying 500 errors
-                * _post.html         HTML sub-template for displaying a smile post
-                * base.html          Base “skeleton” template that contains all the common elements of HTML pages.  
-                * create.html        HTML template for create post page
-                * index.html         HTML template for the main page 
-                * login.html         HTML template for the login page 
-                * register.html      HTML template for the user sign-up page 
-  * tests
-        * __init__.py            Python script that initializes the `tests` module. 
-        * test_models.py         Tests for the `model` ; uses `unittest` framework
-        * test_routes.py         Tests for the rotes ; uses `pytest` framework 
-  * requirements.txt             Lists all the dependencies (required packages), along with their versions.
-  * .flaskenv                    
-  * config.py                    Python script that defines app's configuration variables 
-  * smile.py                     Main application file
+    * app
+            * __init__.py            Python script that initializes the `app` module. 
+            * Controller
+                * __init__.py            Python script that initializes the `Controller` module. 
+                * auth_forms.py          Flask-WTF forms for authentication use cases, i.e., "registering a new user" and "login". 
+                * forms.py               Flask-WTF forms for "creating a post" and "sorting all posts". 
+                * errors.py              Error handlers for 404 and 505 errors
+                * auth_routes.py         Routes handling authetication, i.e., "registering a new user" and "login". 
+                * routes.py              Other routes
+            * Model
+                * __init__.py            Python script that initializes the `Model` module. 
+                * models.py              Database models
+            * View
+                * static
+                    * css
+                        * main.css
+                    * img 
+                        * happiness-level-1.png  image for happiness-level-1
+                        * happiness-level-2.png  image for happiness-level-1
+                        * happiness-level-3.png  image for happiness-level-1
+                        * like.png, like_hover.png      icons for like button
+                * templates
+                    * 404error.html      HTML template page for displaying 404 errors
+                    * 500error.html      HTML template page for displaying 500 errors
+                    * _post.html         HTML sub-template for displaying a smile post
+                    * base.html          Base “skeleton” template that contains all the common elements of HTML pages.  
+                    * create.html        HTML template for create post page
+                    * index.html         HTML template for the main page 
+                    * login.html         HTML template for the login page 
+                    * register.html      HTML template for the user sign-up page 
+    * tests
+            * __init__.py            Python script that initializes the `tests` module. 
+            * test_models.py         Tests for the `model` ; uses `unittest` framework
+            * test_routes.py         Tests for the rotes ; uses `pytest` framework 
+    * requirements.txt             Lists all the dependencies (required packages), along with their versions.
+    * .flaskenv                    
+    * config.py                    Python script that defines app's configuration variables 
+    * smile.py                     Main application file
 ```
-           
-In milestone-1, you will have to make changes to the following files:
 
- * `main.css` 
- * `_post.html`
- * `base.html`
- * `index.html`
- * `create.html`
- * `forms.py`              
- * `models.py`              
- * `routes.py`
+9. Install all the required packages. 
+   The file `requirements.txt` lists all the required Python packages we will need for our application. You can install all packages at once by running the following command. 
+    ```
+        $ pip install -r requirements.txt
+    ```
+    *Note for Windows users*: If `pip` is not installed in your system, you need to also add the Python\Scripts path to the Windows Path. On Windows, Python will typically be installed under the directory `C:\Users\<username>\AppData\Local\Programs\Python\Python3.x`. Locate your Python installation directory, make sure `pip` or `pip3` is under the `Scripts` directory, and add the "path of Scripts directory" to the Path environment variable. 
 
-7. How to run the app:
+    As we need these packages in our application, I will include the commands for installing them. If you already installed all packages in `requirements.txt`, you can skip those.  
+   
+    Initially, make sure that `flask` and `flask-sqlalchemy` are installed in the current virtual environment. If not, install those by running the following commands. 
+ 
+    ```
+        pip install flask
+        pip install flask-sqlalchemy
+    ```
+
+    ** Note: ** Optionally, you can install the required packages in a virtual environment so that the system-wide Python interpreter is not affected. Refer to  the following link for details. [https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
+
+    If you use a virtual environment, make sure to activate virtual environment before you install the requirements. 
+
+9. How to run the app:
 
     * First run the backend:
  
@@ -207,6 +193,20 @@ In milestone-1, you will have to make changes to the following files:
 * defines a preliminary DB model that includes a table for certain fields of the post messages. (see '`app\Model\models.py`)
 * creates the (SQlite) database file (see `initDB` function in `smile.py`)
 * creates a preliminary Flask-WTF form for reading the post data.   
+
+In milestone-1, you will have to make changes to the following files:
+
+ * `main.css` 
+ * `_post.html`
+ * `base.html`
+ * `index.html`
+ * `create.html`
+ * `forms.py`              
+ * `models.py`              
+ * `routes.py`
+
+
+You will now be editing locally and complete the `milestone1` tasks. **Remember to commit frequently**.
 
 
 ---
