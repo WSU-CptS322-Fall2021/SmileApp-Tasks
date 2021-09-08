@@ -407,7 +407,8 @@ When you complete milestone-1, the index page may look like this.
    * Add and commit your changes locally. Make sure you are in branch `milestone1`. 
        ```
        git checkout milestone1
-       git commit -am "Your own commit message"
+       git add .
+       git commit -m "Your own commit message"
        ```
 
    * Push the `milestone1` branch to your remote GitHub repo:
