@@ -176,9 +176,12 @@ Similar to the StudentApp exercise, you will commit your code to a repository un
 
     * First run the backend:
  
-       `python -m flask run`
+       `python smile.py`
 
-       Note:  `.flaskenv` is already configured to run the app in debug mode. Make sure that "debugger is active" when run your application. If not, run the following command instead to activate the debugger mode:  `set FLASK_DEBUG=1 && python -m flask run`
+       Note:  Smile App starter code uses a "factory method" to create the flask application `smile.py`. This is similar to the Student App structure in v.14. And we will launch our backend application using the command `python smile.py`, and the `create_app()` function in smile.py will create the app and will define the `initDB` function. If you will create 
+       Alternatively, you can use the following command:
+        On Windows:  `set FLASK_DEBUG=1 && set FLASK_APP=smile.py && python -m flask run`
+        On Mac:  `export FLASK_DEBUG=1 && export FLASK_APP=smile.py && python -m flask run`
 
     * Open a browser (Chrome is recommended) and open the URL 'http://localhost:5000/'
     At this point, the page should look like the following. 
