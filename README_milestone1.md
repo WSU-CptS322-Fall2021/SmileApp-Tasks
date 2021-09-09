@@ -172,7 +172,12 @@ Similar to the StudentApp exercise, you will commit your code to a repository un
 
     If you use a virtual environment, make sure to activate virtual environment before you install the requirements. 
 
-9. How to run the app:
+10. The file named `.flaskenv` located in the top-level directory of the starter code defines the `FLASK_APP` and `FLASK_DEBUG` environment variables. The `FLASK_APP` environment variable is assigned to the main application file `smile.py`. In order to import these variables automatically when we run flask, we need to install the `python-dotenv` package by running the following command:
+    ```
+       pip install python-dotenv
+    ```
+
+11.  How to run the app:
 
 * First run the backend:
   ```
