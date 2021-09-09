@@ -174,17 +174,23 @@ Similar to the StudentApp exercise, you will commit your code to a repository un
 
 9. How to run the app:
 
-    * First run the backend:
- 
-       `python smile.py`
+* First run the backend:
+  ```
+    python smile.py
+  ```
 
-       Note:  Smile App starter code uses a "factory method" to create the flask application `smile.py`. This is similar to the Student App structure in v.14. And we will launch our backend application using the command `python smile.py`, and the `create_app()` function in smile.py will create the app and will define the `initDB` function. 
-       
-       Alternatively, you can use the following command:
+    Note:  Smile App starter code uses a "factory method" (i.e., `create_app()`) to create the flask application in `smile.py`. This is similar to the Student App structure in v.14. 
+    In the `.flaskenv` file, we set the `FLASK_APP` environment variable `smile.py` to specify how flask should load the application. However, if Flask can't read the this file correctly, it will try to access the database before it is initialized for the app and it will give the following error: "sqlalchemy.exc.OperationalError". So, when the `student.db` file is created for first time, make sure that you launch your application using the command 
+    ```
+        python smile.py
+    ```
+    Alternatively, you can use the following command:
+
         On Windows:  `set FLASK_DEBUG=1 && set FLASK_APP=smile.py && python -m flask run`
+        
         On Mac:  `export FLASK_DEBUG=1 && export FLASK_APP=smile.py && python -m flask run`
 
-    * Open a browser (Chrome is recommended) and open the URL 'http://localhost:5000/'
+* Open a browser (Chrome is recommended) and open the URL 'http://localhost:5000/'
     At this point, the page should look like the following. 
    
    <kbd>
