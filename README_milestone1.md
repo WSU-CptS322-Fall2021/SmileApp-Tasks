@@ -185,8 +185,8 @@ Similar to the StudentApp exercise, you will commit your code to a repository un
   ```
 
     Note:  Smile App starter code uses a "factory method" (i.e., `create_app()`) to create the flask application in `smile.py`. This is similar to the Student App structure in v.14. 
-    In the `.flaskenv` file, we set the `FLASK_APP` environment variable `smile.py` to specify how flask should load the application. However, if Flask can't read the this file correctly, it will try to access the database before it is initialized for the app and it will give the following error: "sqlalchemy.exc.OperationalError". So, when the `student.db` file is created for first time, make sure that you launch your application using the command 
-    ` python smile.py`.
+    In the `.flaskenv` file, we set the `FLASK_APP` environment variable `smile.py` to specify how flask should load the application. However, if the `python-dotenv` package is not installed, it will not import the `FLASK_APP` environment variable correctly and  it will try to access the database before it is initialized for the app and it will give the following error: "sqlalchemy.exc.OperationalError". So, when the `student.db` file is created for first time, make sure that you launch your application using the command 
+    ` python smile.py` or make sure that `python-dotenv` is installed. 
     Alternatively, you can use the following command:
 
     On Windows:  `set FLASK_DEBUG=1 && set FLASK_APP=smile.py && python -m flask run`
