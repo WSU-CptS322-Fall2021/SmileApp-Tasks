@@ -178,7 +178,8 @@ Similar to the StudentApp exercise, you will commit your code to a repository un
  
        `python smile.py`
 
-       Note:  Smile App starter code uses a "factory method" to create the flask application `smile.py`. This is similar to the Student App structure in v.14. And we will launch our backend application using the command `python smile.py`, and the `create_app()` function in smile.py will create the app and will define the `initDB` function. If you will create 
+       Note:  Smile App starter code uses a "factory method" to create the flask application `smile.py`. This is similar to the Student App structure in v.14. And we will launch our backend application using the command `python smile.py`, and the `create_app()` function in smile.py will create the app and will define the `initDB` function. 
+       
        Alternatively, you can use the following command:
         On Windows:  `set FLASK_DEBUG=1 && set FLASK_APP=smile.py && python -m flask run`
         On Mac:  `export FLASK_DEBUG=1 && export FLASK_APP=smile.py && python -m flask run`
